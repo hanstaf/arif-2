@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Kuis interaktif 10 soal untuk Bab I buku ajar Logika Matematika dan Implementasinya dalam Bidang Ilmu Komputer, lengkap dengan pembahasan dan rujukan subbab.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📝%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Logika Bab I</title>
+<style>
+:root{--bg:#f3f6fa;--card:#fff;--ink:#14263a;--mute:#4f6078;--line:#c7d2e0;--navy:#34506f;--ob:#fde9cc;--ol:#9c5a00;--gb:#e1efdd;--gl:#2a6a2c;--rb:#fbe4e1;--rl:#a3342a;--ph:#eef2f7;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b29;--card:#172638;--ink:#e6edf6;--mute:#9db0c7;--line:#2f4560;--navy:#8fb0d6;--ob:#4a3510;--ol:#f0b25a;--gb:#17381c;--gl:#7fd283;--rb:#4a1f1b;--rl:#ff9d93;--ph:#1d3047;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1b29;--card:#172638;--ink:#e6edf6;--mute:#9db0c7;--line:#2f4560;--navy:#8fb0d6;--ob:#4a3510;--ol:#f0b25a;--gb:#17381c;--gl:#7fd283;--rb:#4a1f1b;--rl:#ff9d93;--ph:#1d3047;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Times New Roman",serif}
+.wrap{max-width:46rem;margin:0 auto;padding:1rem}
+h1{font-size:1.55rem;line-height:1.2;margin:.3rem 0}h2{font-size:1.15rem;margin:0 0 .4rem}
+p{margin:.4rem 0}.mute{color:var(--mute);font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem;margin:0 0 1rem}
+.rule{background:var(--ob);border:2px solid var(--ol);border-radius:8px;padding:.45rem .7rem;margin:.4rem 0;font:600 .95rem ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+label.f{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;margin:.1rem .8rem .1rem 0;font:1rem system-ui,sans-serif}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--navy)}
+button{font:600 1rem system-ui,sans-serif;min-height:44px;padding:.5rem 1rem;border-radius:8px;border:2px solid var(--navy);background:var(--navy);color:var(--bg);cursor:pointer}
+button.alt,.opt{background:var(--card);color:var(--ink)}
+:focus-visible{outline:3px solid var(--ol);outline-offset:2px}
+.step{border-left:4px solid var(--navy);padding:.3rem .8rem;margin:.6rem 0;background:var(--ph);border-radius:0 8px 8px 0;font:.95rem/1.5 system-ui,sans-serif;overflow-wrap:anywhere}
+.chip{display:inline-block;padding:.1rem .6rem;margin:.15rem;border-radius:99px;background:var(--gb);border:2px solid var(--gl);font:600 .88rem ui-monospace,Consolas,monospace}
+.v1{color:var(--gl);font-weight:700}.v0{color:var(--rl);font-weight:700}
+.badge{display:inline-block;padding:.3rem .9rem;border-radius:8px;font:700 1.05rem system-ui,sans-serif;border:2px solid}
+.ok{background:var(--gb);color:var(--gl);border-color:var(--gl)}.no{background:var(--rb);color:var(--rl);border-color:var(--rl)}
+.opt{display:block;width:100%;text-align:left;margin:.5rem 0;font-weight:500;border-color:var(--line)}
+.opt.right{background:var(--gb);border-color:var(--gl)}.opt.wrong{background:var(--rb);border-color:var(--rl)}
+.bar{height:8px;background:var(--ph);border-radius:99px;overflow:hidden;margin:.5rem 0 1rem}.bar i{display:block;height:100%;background:var(--navy);width:0}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .3s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Kuis Logika Bab I</h1>
+<p class="mute">Pendamping buku ajar Logika Matematika dan Implementasinya dalam Bidang Ilmu Komputer. Sepuluh soal dengan pembahasan langsung dan rujukan subbab.</p>
+</header>
+
+
+
+<main>
+<section class="card">
+<div class="bar" role="progressbar" aria-label="Kemajuan kuis" aria-valuemin="0" aria-valuemax="10"><i id="bar"></i></div>
+<div id="qz" aria-live="polite"></div>
+</section>
+</main>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+
+/* 3. kuis: [capaian, soal, pilihan, indeks jawaban, pembahasan, rujukan] */
+const Q=[
+[2,"Mana yang merupakan proposisi?",["Apakah sandi sudah benar?","Masukkan kode OTP.","Sensor suhu melewati 70 °C.","Semoga sistem tidak galat."],2,"Proposisi adalah kalimat deklaratif yang dapat dinyatakan benar atau salah. Pertanyaan dan perintah bukan proposisi.","Subbab 3.1"],
+[2,"Pada aturan “jika p maka q”, kapan implikasi p → q bernilai salah?",["p salah dan q benar","p benar dan q salah","p benar dan q benar","p salah dan q salah"],1,"p → q hanya salah bila p benar dan q salah (Tabel 1).","Subbab 3.1, Tabel 1"],
+[3,"Fakta: hujan dan jendela_terbuka. Aturan: hujan ∧ jendela_terbuka → peringatan. Pola inferensi yang menurunkan peringatan adalah …",["Modus tollens","Hukum De Morgan","Modus ponens","Biimplikasi"],2,"Syarat aturan cocok dengan fakta, sehingga kesimpulan ditambahkan sebagai fakta baru. Itulah modus ponens.","Subbab 3.2 dan 3.3"],
+[1,"Aturan: jika prasyarat lulus ∧ jadwal tidak bentrok → rencana disetujui. Rencana Andi tidak disetujui, padahal prasyaratnya lulus. Apa kesimpulan sahih tentang jadwal (bila aturan itu satu-satunya syarat)?",["Jadwal Andi tidak bentrok","Tidak dapat disimpulkan","Prasyarat Andi sebenarnya belum lulus","Jadwal Andi bentrok"],3,"Modus tollens: rencana tidak disetujui, maka ¬(prasyarat ∧ jadwal_ok). Karena prasyarat benar, jadwal_ok haruslah salah.","Contoh 1"],
+[3,"Sebuah sistem mulai dari tujuan “risiko”, mencari aturan yang kesimpulannya risiko, lalu memeriksa syarat aturan itu. Strategi penalarannya adalah …",["Forward chaining","Backward chaining","Pengujian tabel kebenaran","Validasi input"],1,"Backward chaining dimulai dari tujuan, mencari aturan yang menghasilkannya, lalu membuktikan syaratnya sebagai sub-tujuan.","Subbab 4.2"],
+[3,"Pada Kode 1 dengan fakta awal suhu_tinggi dan tekanan_rendah, fakta risiko pertama kali diturunkan pada …",["iterasi 2, karena R2 hanya diperiksa pada putaran berikutnya","iterasi 3, saat while berhenti","iterasi 1, setelah R1 menambah alarm_suhu pada putaran yang sama","tidak pernah, karena R2 gagal"],2,"R2 diperiksa setelah R1 dalam putaran for yang sama, jadi risiko muncul di iterasi 1. Iterasi 2 tanpa perubahan, sehingga while berhenti.","Subbab 4.2, Kode 1"],
+[4,"valid(pw) bernilai len(pw) >= 8 ∧ ada digit. Berapa hasil valid(“abcdefgh”)?",["True, karena panjangnya 8","True, karena salah satu syarat terpenuhi","Terjadi galat","False, karena tidak ada digit"],3,"Konjungsi menuntut semua syarat. Satu syarat yang gagal cukup untuk menolak masukan.","Subbab 4.3, Kode 2"],
+[4,"Syarat penerimaan berkas: format_pdf ∧ ukuran ≤ 10 ∧ tepat_waktu. Kondisi penolakan yang setara menurut De Morgan adalah …",["¬format_pdf ∧ ukuran > 10 ∧ ¬tepat_waktu","¬format_pdf ∨ ukuran ≤ 10 ∨ ¬tepat_waktu","¬format_pdf ∨ ukuran > 10 ∨ ¬tepat_waktu","format_pdf ∨ ukuran ≤ 10 ∨ tepat_waktu"],2,"¬(a ∧ b ∧ c) ≡ ¬a ∨ ¬b ∨ ¬c, dan negasi dari ukuran ≤ 10 adalah ukuran > 10.","Contoh 3"],
+[5,"Dosen B memasukkan sandi dan OTP yang benar, tetapi bukan pengampu mata kuliah sehingga gagal mengubah nilai. Keadaan ini menunjukkan …",["gagal autentikasi, lolos otorisasi","gagal autentikasi dan otorisasi","lolos autentikasi dan otorisasi","lolos autentikasi, gagal otorisasi"],3,"Autentikasi memvalidasi identitas (berhasil). Otorisasi memberi hak berdasarkan identitas itu (tidak terpenuhi).","Subbab 4.4, Contoh 4"],
+[6,"Pada pohon serangan S = (a₁ ∧ a₂) ∨ (b₁ ∧ b₂) ∨ c, OTP diwajibkan sehingga a₂ salah. Apakah S pasti salah?",["Ya, karena OTP menutup semua serangan","Tidak, cabang B dan C masih dapat membuat S benar","Ya, karena a₂ salah membuat seluruh cabang salah","Tidak, karena cabang A tetap benar"],1,"OTP hanya menetralkan cabang A. S baru pasti salah bila OTP wajib, percobaan login dibatasi, dan sesi berakhir otomatis.","Subbab 4.5, Studi Kasus 3"]
+];
+let i=0,sc=0,miss=[];
+function ask(){const q=Q[i];$("#bar").style.width=(i/Q.length*100)+"%";$(".bar").setAttribute("aria-valuenow",i);
+ $("#qz").innerHTML=`<p class="mute">Soal ${i+1} dari ${Q.length} (Capaian ${q[0]})</p><p><b>${esc(q[1])}</b></p>`+q[2].map((o,k)=>`<button type="button" class="opt" data-k="${k}">${esc(o)}</button>`).join("")+`<div id="fb"></div>`;
+ document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(+b.dataset.k))}
+function pick(k){const q=Q[i],ok=k===q[3];if(ok)sc++;else miss.push(i);
+ document.querySelectorAll(".opt").forEach((b,n)=>{b.disabled=true;if(n===q[3])b.classList.add("right");else if(n===k)b.classList.add("wrong")});
+ $("#fb").innerHTML=`<div class="step"><b class="${ok?"v1":"v0"}">${ok?"Benar.":"Kurang tepat."}</b> ${esc(q[4])}<br><span class="mute">Rujukan: ${esc(q[5])}</span></div><button type="button" id="nx">${i+1<Q.length?"Soal berikutnya":"Lihat skor"}</button>`;
+ $("#nx").focus();$("#nx").onclick=()=>{i++;i<Q.length?ask():end()}}
+function end(){$("#bar").style.width="100%";$(".bar").setAttribute("aria-valuenow",Q.length);
+ const m=sc>=9?"Sangat baik. Kamu siap lanjut ke Bab II.":sc>=7?"Baik. Tinjau rujukan soal yang masih keliru.":sc>=5?"Cukup. Baca ulang subbab pada daftar di bawah.":"Perlu mengulang. Pelajari kembali Bab I dari Subbab 3.";
+ $("#qz").innerHTML=`<h2>Skor: ${sc} dari ${Q.length}</h2><p>${m}</p>`+(miss.length?`<p><b>Tinjau kembali:</b></p>`+miss.map(n=>`<div class="step">${esc(Q[n][1])}<br><span class="v1">Jawaban: ${esc(Q[n][2][Q[n][3]])}</span><br><span class="mute">Rujukan: ${esc(Q[n][5])}</span></div>`).join(""):"<p>Semua jawaban benar.</p>")+`<button type="button" id="rs">Ulangi kuis</button>`;
+ $("#rs").onclick=()=>{i=0;sc=0;miss=[];ask()}}
+ask();
+</script>
+</body>
+</html>
